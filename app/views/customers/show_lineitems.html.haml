@@ -1,0 +1,16 @@
+= "There are #{@lineitems.count} lineitems for order #{@order_id} from for customer #{Order.find(@order_id).customer.name_with_id}"
+%table#lineitems
+  %thead
+    %tr
+      %th Product ID
+      %th Product name
+      %th Quantity
+      %th Price
+  - @lineitems.each do |lineitem|
+    %tr
+      %td= lineitem.product_id
+      %td= lineitem.product.name
+      %td= lineitem.quantity
+      %td= lineitem.product.price
+      
+  

@@ -1,0 +1,5 @@
+= "There are #{@orders.count} orders for customer #{Customer.find_by_id(@customer_id).name_with_id}"
+= form_tag "show_lineitems", method: :get do
+  =collection_select(:order, :id, @orders.all, :id, :order_date)
+  = submit_tag "Get this order's products"
+ 
